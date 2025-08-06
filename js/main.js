@@ -22,6 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById(productId).scrollIntoView({
                 behavior: 'smooth'
             });
+            
+            // Activate first tab in the newly shown section
+            const firstTabBtn = document.querySelector(`#${productId} .tab-btn`);
+            if (firstTabBtn) {
+                firstTabBtn.click();
+            }
         });
     });
     
@@ -31,6 +37,26 @@ document.addEventListener('DOMContentLoaded', function() {
         option.addEventListener('click', function() {
             sizeOptions.forEach(opt => opt.classList.remove('active'));
             this.classList.add('active');
+        });
+    });
+    
+    // Tab functionality for additional products
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const tabId = this.getAttribute('data-tab');
+            const parentSection = this.closest('.product-section');
+            
+            // Remove active class from all buttons in this section
+            parentSection.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            // Remove active class from all panes in this section
+            parentSection.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+            
+            // Add active class to clicked button and corresponding pane
+            this.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
         });
     });
     
@@ -45,7 +71,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animate elements on scroll
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.feature, .product-section.active .product-image, .product-section.active .product-content');
+        const elements = document.querySelectorAll(
+            '.feature, ' +
+            '.product-section.active .product-image, ' +
+            '.product-section.active .product-content, ' +
+            '.product-section.active .tab-product-grid'
+        );
         
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
@@ -62,7 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const animateElements = [
         ...document.querySelectorAll('.feature'),
         ...document.querySelectorAll('.product-section.active .product-image'),
-        ...document.querySelectorAll('.product-section.active .product-content')
+        ...document.querySelectorAll('.product-section.active .product-content'),
+        ...document.querySelectorAll('.product-section.active .tab-product-grid')
     ];
     
     animateElements.forEach((element, index) => {
@@ -79,4 +111,13 @@ document.addEventListener('DOMContentLoaded', function() {
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
     });
+    
+    // Activate first tab in the active section on load
+    const activeSection = document.querySelector('.product-section.active');
+    if (activeSection) {
+        const firstTabBtn = activeSection.querySelector('.tab-btn');
+        if (firstTabBtn) {
+            firstTabBtn.click();
+        }
+    }
 });
