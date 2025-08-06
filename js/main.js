@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const whatsappFloat = document.createElement('a');
     whatsappFloat.href = 'https://wa.me/1234567890?text=Hi,%20I%20need%20help%20choosing%20a%20Reload%20product';
     whatsappFloat.className = 'whatsapp-float';
+    whatsappFloat.target = '_blank';
+    whatsappFloat.rel = 'noopener noreferrer';
     whatsappFloat.innerHTML = '<i class="fab fa-whatsapp"></i>';
     document.body.appendChild(whatsappFloat);
     
@@ -71,4 +73,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll(); // Run once on load
+    
+    // Set all WhatsApp links to open in new tab
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+    });
 });
