@@ -731,14 +731,27 @@ section {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 40px;
+    align-items: flex-start;
+}
+
+.tab-product-image {
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .tab-product-image img {
     max-width: 100%;
     height: auto;
+    min-height: 200px;
+    max-height: 350px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    object-fit: contain;
+    background-color: white;
+    padding: 10px;
 }
 
 /* Responsive Design for Different Screen Sizes */
@@ -753,6 +766,10 @@ section {
     .nutrition-image {
         max-height: 600px;
     }
+
+    .tab-product-image img {
+        max-height: 400px;
+    }
 }
 
 /* Large Screens (1200px - 1399px) */
@@ -764,6 +781,10 @@ section {
     
     .nutrition-image {
         max-height: 550px;
+    }
+
+    .tab-product-image img {
+        max-height: 380px;
     }
 }
 
@@ -811,6 +832,10 @@ section {
     .nutrition-image {
         max-height: 500px;
     }
+
+    .tab-product-image img {
+        max-height: 300px;
+    }
 }
 
 /* Medium Screens (768px - 991px) */
@@ -857,6 +882,7 @@ section {
     
     .tab-product-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
     
     .tab-nav {
@@ -880,6 +906,18 @@ section {
     
     .nutrition-image {
         max-height: 450px;
+    }
+
+    .tab-product-image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .tab-product-image img {
+        min-height: 250px;
+        max-height: 350px;
+        width: auto;
     }
 }
 
@@ -949,6 +987,39 @@ section {
         min-height: 350px;
         padding: 8px;
     }
+
+    .tab-product-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .tab-product-image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .tab-product-image img {
+        min-height: 220px;
+        max-height: 300px;
+        width: auto;
+        max-width: 280px;
+    }
+
+    .tab-content {
+        padding: 20px;
+    }
+
+    .tab-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tab-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        min-width: 80px;
+    }
 }
 
 /* Extra Small Screens (480px - 575px) */
@@ -969,6 +1040,22 @@ section {
         min-height: 320px;
         padding: 6px;
         border-radius: 10px;
+    }
+
+    .tab-product-image img {
+        min-height: 200px;
+        max-height: 280px;
+        max-width: 250px;
+    }
+
+    .tab-content {
+        padding: 15px;
+    }
+
+    .tab-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        min-width: 70px;
     }
 }
 
@@ -995,6 +1082,47 @@ section {
         padding: 5px;
         border-radius: 8px;
     }
+
+    .tab-product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tab-product-image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .tab-product-image img {
+        min-height: 180px;
+        max-height: 250px;
+        width: auto;
+        max-width: 200px;
+        object-fit: contain;
+    }
+
+    .tab-content {
+        padding: 12px;
+    }
+
+    .tab-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2px;
+    }
+
+    .tab-btn {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+        min-width: 60px;
+        flex: 1;
+        max-width: 90px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
 }
 
 /* Ultra Small Screens (280px - 319px) */
@@ -1015,6 +1143,23 @@ section {
         min-height: 250px;
         padding: 4px;
     }
+
+    .tab-product-image img {
+        min-height: 160px;
+        max-height: 220px;
+        max-width: 180px;
+    }
+
+    .tab-btn {
+        padding: 5px 6px;
+        font-size: 0.7rem;
+        min-width: 55px;
+        max-width: 80px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
 }
 
 /* Landscape Orientation Adjustments for Mobile */
@@ -1033,11 +1178,21 @@ section {
         max-height: 280px;
         min-height: 200px;
     }
+
+    .tab-product-image img {
+        min-height: 150px;
+        max-height: 200px;
+    }
 }
 
 /* High DPI Screens */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
     .nutrition-image {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+
+    .tab-product-image img {
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
     }
@@ -1053,6 +1208,11 @@ section {
     }
     
     .nutrition-image {
+        max-height: none !important;
+        box-shadow: none !important;
+    }
+
+    .tab-product-image img {
         max-height: none !important;
         box-shadow: none !important;
     }
