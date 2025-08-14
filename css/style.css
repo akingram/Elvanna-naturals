@@ -240,7 +240,7 @@ section {
     border-radius: 50px;
     font-weight: 600;
     font-size: 0.8rem;
-    box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2));
+    box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2);
 }
 
 .floating-icon {
@@ -257,7 +257,7 @@ section {
     justify-content: center;
     font-size: 1.3rem;
     animation: float 3s ease-in-out infinite;
-    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2));
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
 }
 
 .product-content h2 {
@@ -325,6 +325,66 @@ section {
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
+}
+
+/* Nutritional Information Specific Styles */
+.nutritional-info {
+    margin: 30px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+    border-radius: 15px;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.nutritional-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+}
+
+.nutritional-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.nutritional-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+.nutrition-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    object-fit: contain;
+    background-color: white;
+    padding: 10px;
+}
+
+.nutrition-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 /* Science Section */
@@ -480,24 +540,24 @@ section {
 .btn-gradient {
     background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
     color: white;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3));
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }
 
 .btn-gradient:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4));
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
 }
 
 .btn-whatsapp {
     background-color: #25D366;
     color: white;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3));
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
 .btn-whatsapp:hover {
     background-color: #1da851;
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4));
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
 }
 
 .btn-outline {
@@ -552,14 +612,14 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 1.3rem;
-    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3));
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
     z-index: 100;
     transition: all 0.3s ease;
 }
 
 .whatsapp-float:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4));
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }
 
 /* Animations */
@@ -597,130 +657,6 @@ section {
     }
 }
 
-/* Responsive Styles */
-@media (max-width: 992px) {
-    .hero {
-        min-height: 500px;
-        padding: 50px 0;
-    }
-    
-    .product-nav a {
-        padding: 12px 8px;
-    }
-    
-    .product-nav a i {
-        font-size: 1.3rem;
-    }
-    
-    .product-nav a span {
-        font-size: 0.8rem;
-    }
-    
-    .product-section {
-        padding: 60px 0;
-    }
-    
-    .bottle-img {
-        max-height: 350px;
-    }
-    
-    .science-image {
-        height: 250px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        min-height: 450px;
-    }
-    
-    .product-nav li {
-        min-width: 100px;
-    }
-    
-    .product-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .product-image {
-        margin-bottom: 20px;
-    }
-    
-    .bottle-img {
-        max-height: 300px;
-    }
-    
-    .science-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .science-image {
-        height: 200px;
-        margin-top: 40px;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 250px;
-    }
-}
-
-@media (max-width: 576px) {
-    section {
-        padding: 60px 0;
-    }
-    
-    .hero {
-        min-height: 400px;
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .product-nav a {
-        padding: 10px 5px;
-        font-size: 0.7rem;
-    }
-    
-    .product-nav a i {
-        font-size: 1.1rem;
-        margin-bottom: 5px;
-    }
-    
-    .product-section {
-        padding: 50px 0;
-    }
-    
-    .bottle-img {
-        max-height: 250px;
-    }
-    
-    .product-content h2 {
-        font-size: 1.6rem;
-    }
-    
-    .highlight {
-        font-size: 0.8rem;
-        padding: 5px 10px;
-    }
-    
-    .whatsapp-float {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
-}
 /* Additional Products Styles */
 .additional-products {
     margin-top: 60px;
@@ -805,7 +741,120 @@ section {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-@media (max-width: 768px) {
+/* Responsive Design for Different Screen Sizes */
+
+/* Extra Large Screens (1400px and up) */
+@media (min-width: 1400px) {
+    .nutritional-info {
+        max-width: 800px;
+        margin: 30px auto;
+    }
+    
+    .nutrition-image {
+        max-height: 600px;
+    }
+}
+
+/* Large Screens (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .nutritional-info {
+        max-width: 700px;
+        margin: 25px auto;
+    }
+    
+    .nutrition-image {
+        max-height: 550px;
+    }
+}
+
+/* Medium to Large Screens (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .hero {
+        min-height: 500px;
+        padding: 50px 0;
+    }
+    
+    .product-nav a {
+        padding: 12px 8px;
+    }
+    
+    .product-nav a i {
+        font-size: 1.3rem;
+    }
+    
+    .product-nav a span {
+        font-size: 0.8rem;
+    }
+    
+    .product-section {
+        padding: 60px 0;
+    }
+    
+    .bottle-img {
+        max-height: 350px;
+    }
+    
+    .science-image {
+        height: 250px;
+    }
+    
+    .nutritional-info {
+        max-width: 600px;
+        margin: 25px auto;
+        padding: 18px;
+    }
+    
+    .nutritional-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .nutrition-image {
+        max-height: 500px;
+    }
+}
+
+/* Medium Screens (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero {
+        min-height: 450px;
+    }
+    
+    .product-nav li {
+        min-width: 100px;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .product-image {
+        margin-bottom: 20px;
+    }
+    
+    .bottle-img {
+        max-height: 300px;
+    }
+    
+    .science-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .science-image {
+        height: 200px;
+        margin-top: 40px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
     .tab-product-grid {
         grid-template-columns: 1fr;
     }
@@ -817,5 +866,189 @@ section {
     .tab-btn {
         padding: 10px 15px;
         font-size: 0.9rem;
+    }
+    
+    .nutritional-info {
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 16px;
+    }
+    
+    .nutritional-info h3 {
+        font-size: 1.15rem;
+    }
+    
+    .nutrition-image {
+        max-height: 450px;
+    }
+}
+
+/* Small to Medium Screens (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    section {
+        padding: 60px 0;
+    }
+    
+    .hero {
+        min-height: 400px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .product-nav a {
+        padding: 10px 5px;
+        font-size: 0.7rem;
+    }
+    
+    .product-nav a i {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+    
+    .product-section {
+        padding: 50px 0;
+    }
+    
+    .bottle-img {
+        max-height: 250px;
+    }
+    
+    .product-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .highlight {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+    
+    .whatsapp-float {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .nutritional-info {
+        margin: 20px 0;
+        padding: 15px;
+    }
+    
+    .nutritional-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    
+    .nutrition-image {
+        max-height: 400px;
+        padding: 8px;
+    }
+}
+
+/* Extra Small Screens (480px - 575px) */
+@media (min-width: 480px) and (max-width: 575px) {
+    .nutritional-info {
+        margin: 18px 0;
+        padding: 12px;
+        border-radius: 12px;
+    }
+    
+    .nutritional-info h3 {
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+    }
+    
+    .nutrition-image {
+        max-height: 350px;
+        padding: 6px;
+        border-radius: 10px;
+    }
+}
+
+/* Mobile Screens (320px - 479px) */
+@media (max-width: 479px) {
+    .nutritional-info {
+        margin: 15px 0;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    .nutritional-info h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    
+    .nutritional-info h3::after {
+        width: 40px;
+    }
+    
+    .nutrition-image {
+        max-height: 300px;
+        padding: 5px;
+        border-radius: 8px;
+    }
+}
+
+/* Ultra Small Screens (280px - 319px) */
+@media (max-width: 319px) {
+    .nutritional-info {
+        margin: 12px 0;
+        padding: 8px;
+        border-radius: 8px;
+    }
+    
+    .nutritional-info h3 {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+    
+    .nutrition-image {
+        max-height: 250px;
+        padding: 4px;
+    }
+}
+
+/* Landscape Orientation Adjustments for Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .nutritional-info {
+        margin: 10px 0;
+        padding: 8px;
+    }
+    
+    .nutritional-info h3 {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+    
+    .nutrition-image {
+        max-height: 200px;
+    }
+}
+
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    .nutrition-image {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .nutritional-info {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+    
+    .nutrition-image {
+        max-height: none !important;
+        box-shadow: none !important;
     }
 }
