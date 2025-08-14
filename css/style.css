@@ -945,7 +945,8 @@ section {
     }
     
     .nutrition-image {
-        max-height: 400px;
+        max-height: 500px;
+        min-height: 350px;
         padding: 8px;
     }
 }
@@ -964,7 +965,8 @@ section {
     }
     
     .nutrition-image {
-        max-height: 350px;
+        max-height: 450px;
+        min-height: 320px;
         padding: 6px;
         border-radius: 10px;
     }
@@ -988,7 +990,8 @@ section {
     }
     
     .nutrition-image {
-        max-height: 300px;
+        max-height: 400px;
+        min-height: 280px;
         padding: 5px;
         border-radius: 8px;
     }
@@ -1008,7 +1011,8 @@ section {
     }
     
     .nutrition-image {
-        max-height: 250px;
+        max-height: 350px;
+        min-height: 250px;
         padding: 4px;
     }
 }
@@ -1026,7 +1030,8 @@ section {
     }
     
     .nutrition-image {
-        max-height: 200px;
+        max-height: 280px;
+        min-height: 200px;
     }
 }
 
