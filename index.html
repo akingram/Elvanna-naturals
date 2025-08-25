@@ -507,6 +507,155 @@
             animation: bounce 2s infinite;
         }
 
+        .order-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            z-index: 1;
+        }
+
+        .close-btn:hover {
+            color: #ff6b6b;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+        }
+
+        .modal-header h2 {
+            font-family: 'Fredoka', cursive;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .selected-product {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
+        .order-form {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .order-summary {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .summary-row.total {
+            border-top: 2px solid #667eea;
+            padding-top: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #667eea;
+        }
+
+        .submit-order-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #25d366, #20c997);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .submit-order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+
         @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -531,6 +680,16 @@
                 left: 20px;
                 right: 20px;
                 transform: none;
+            }
+
+            .modal-content {
+                max-height: 95vh;
+                margin: 10px;
+            }
+            
+            .modal-header,
+            .order-form {
+                padding: 20px;
             }
         }
     </style>
@@ -563,10 +722,10 @@
                         </div>
                     </div>
 
-                    <a href="#products" class="cta-primary">
+                    <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" class="cta-primary" style="border: none; cursor: pointer;">
                         <i class="fas fa-rocket"></i>
                         BOOST MY CHILD'S HEALTH NOW!
-                    </a>
+                    </button>
                 </div>
 
                 <div class="hero-image">
@@ -645,9 +804,9 @@
                         <div class="delivery-note">Despatch included within Accra</div>
                     </div>
 
-                    <a href="https://wa.me/+233591410341?text=I%20want%20to%20order%20Reload%204%20Kidz%20Premium%20Syrup%20now!" class="whatsapp-cta">
+                    <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" class="whatsapp-cta" style="border: none; cursor: pointer;">
                         <i class="fab fa-whatsapp"></i> ORDER NOW - ₵220
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Chewable Tablets -->
@@ -670,9 +829,9 @@
                         <div class="delivery-note">Despatch included within Accra</div>
                     </div>
 
-                    <a href="https://wa.me/+233591410341?text=I%20want%20to%20order%20Reload%204%20Kidz%20Chewable%20Tablets%20now!" class="whatsapp-cta">
+                    <button onclick="openOrderForm('Reload 4 Kidz Chewable Tablets', 250)" class="whatsapp-cta" style="border: none; cursor: pointer;">
                         <i class="fab fa-whatsapp"></i> ORDER NOW - ₵250
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Tonic -->
@@ -695,9 +854,9 @@
                         <div class="delivery-note">Despatch cost included</div>
                     </div>
 
-                    <a href="https://wa.me/+233591410341?text=I%20want%20to%20order%20Reload%20Tonic%20now!" class="whatsapp-cta">
+                    <button onclick="openOrderForm('Reload Tonic', 160)" class="whatsapp-cta" style="border: none; cursor: pointer;">
                         <i class="fab fa-whatsapp"></i> ORDER NOW - ₵160
-                    </a>
+                    </button>
                 </div>
 
 
@@ -845,13 +1004,13 @@
             </div>
 
             <div>
-                <a href="https://wa.me/+233591410341?text=I%20need%20to%20secure%20my%20Reload%204%20Kidz%20before%20you%20sell%20out!" 
-                   style="display: inline-flex; align-items: center; gap: 15px; background: white; color: #ff6b6b; padding: 20px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease;"
+                <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" 
+                   style="display: inline-flex; align-items: center; gap: 15px; background: white; color: #ff6b6b; padding: 20px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; border: none; cursor: pointer;"
                    onmouseover="this.style.transform='translateY(-5px)'"
                    onmouseout="this.style.transform='translateY(0)'">
                     <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
                     SECURE MY BOTTLE NOW!
-                </a>
+                </button>
             </div>
         </div>
     </section>
@@ -867,15 +1026,15 @@
                     <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: #ffd700;">🎯 CHOOSE YOUR CHILD'S TRANSFORMATION:</h3>
                     
                     <div class="cta-buttons">
-                        <a href="https://wa.me/+233591410341?text=I%20want%20the%20COMPLETE%20Kidz%20Bundle%20(all%20products)%20for%20maximum%20health%20benefits!" class="whatsapp-cta" style="background: #ffd700; color: #2c3e50;">
+                        <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" class="whatsapp-cta" style="background: #ffd700; color: #2c3e50; border: none; cursor: pointer;">
                             <i class="fas fa-gift"></i>
                             GET COMPLETE BUNDLE NOW!
-                        </a>
+                        </button>
                         
-                        <a href="https://wa.me/+233591410341?text=I%20want%20to%20start%20with%20the%20Kidz%20Premium%20Syrup%20for%20better%20grades!" class="whatsapp-cta">
+                        <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" class="whatsapp-cta" style="border: none; cursor: pointer;">
                             <i class="fab fa-whatsapp"></i>
                             START WITH SYRUP - ₵220
-                        </a>
+                        </button>
                         
                         <a href="tel:+233591410341" class="phone-cta">
                             <i class="fas fa-phone"></i>
@@ -994,15 +1153,175 @@
         </div>
     </section>
 
+    <!-- Order Form Modal -->
+    <div id="orderModal" class="order-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeOrderForm()">&times;</span>
+            <div class="modal-header">
+                <h2>Complete Your Order</h2>
+                <div id="selectedProduct" class="selected-product"></div>
+            </div>
+            
+            <form id="orderForm" class="order-form">
+                <div class="form-group">
+                    <label for="customerName">Full Name *</label>
+                    <input type="text" id="customerName" name="customerName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerPhone">Phone Number *</label>
+                    <input type="tel" id="customerPhone" name="customerPhone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerEmail">Email Address</label>
+                    <input type="email" id="customerEmail" name="customerEmail">
+                </div>
+                
+                <div class="form-group">
+                    <label for="deliveryAddress">Delivery Address *</label>
+                    <textarea id="deliveryAddress" name="deliveryAddress" rows="3" required placeholder="Enter your full delivery address"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="childAge">Child's Age</label>
+                    <select id="childAge" name="childAge">
+                        <option value="">Select age range</option>
+                        <option value="2-3 years">2-3 years</option>
+                        <option value="4-6 years">4-6 years</option>
+                        <option value="7-9 years">7-9 years</option>
+                        <option value="10-12 years">10-12 years</option>
+                        <option value="Multiple children">Multiple children</option>
+                    </select>
+                </div>
+                
+               <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="1000" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="specialInstructions">Special Instructions</label>
+                    <textarea id="specialInstructions" name="specialInstructions" rows="2" placeholder="Any special delivery instructions or health concerns?"></textarea>
+                </div>
+                
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>Product:</span>
+                        <span id="summaryProduct"></span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Quantity:</span>
+                        <span id="summaryQuantity">1</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="summaryTotal"></span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-order-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    COMPLETE ORDER VIA WHATSAPP
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- Sticky CTA -->
     <div class="sticky-cta">
-        <a href="https://wa.me/+233591410341?text=I'm%20ready%20to%20transform%20my%20child's%20health%20with%20Reload%204%20Kidz!" class="whatsapp-cta" style="animation: pulse 2s infinite;">
+        <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" class="whatsapp-cta" style="animation: pulse 2s infinite; border: none; cursor: pointer;">
             <i class="fab fa-whatsapp"></i>
             ORDER NOW - STOCK LIMITED!
-        </a>
+        </button>
     </div>
 
     <script>
+        // Global variables for order form
+        let currentProduct = '';
+        let currentPrice = 0;
+
+        // Order Form Functions
+        function openOrderForm(productName, price) {
+            currentProduct = productName;
+            currentPrice = price;
+            
+            document.getElementById('selectedProduct').innerHTML = `
+                <strong>${productName}</strong> - ₵${price}
+            `;
+            document.getElementById('summaryProduct').textContent = productName;
+            document.getElementById('summaryTotal').textContent = `₵${price}`;
+            
+            document.getElementById('orderModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOrderForm() {
+            document.getElementById('orderModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            document.getElementById('orderForm').reset();
+        }
+
+        function updateOrderSummary() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const total = currentPrice * quantity;
+            
+            document.getElementById('summaryQuantity').textContent = quantity;
+            document.getElementById('summaryTotal').textContent = `₵${total}`;
+        }
+
+        // Handle form submission
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const quantity = parseInt(formData.get('quantity'));
+            const total = currentPrice * quantity;
+            
+            // Create WhatsApp message
+            let message = `🛒 NEW ORDER REQUEST\n\n`;
+            message += `👤 Customer Details:\n`;
+            message += `Name: ${formData.get('customerName')}\n`;
+            message += `Phone: ${formData.get('customerPhone')}\n`;
+            if (formData.get('customerEmail')) {
+                message += `Email: ${formData.get('customerEmail')}\n`;
+            }
+            message += `\n📦 Order Details:\n`;
+            message += `Product: ${currentProduct}\n`;
+            message += `Quantity: ${quantity} bottle(s)\n`;
+            message += `Unit Price: ₵${currentPrice}\n`;
+            message += `Total Amount: ₵${total}\n`;
+            message += `\n🚚 Delivery Details:\n`;
+            message += `Address: ${formData.get('deliveryAddress')}\n`;
+            if (formData.get('childAge')) {
+                message += `Child's Age: ${formData.get('childAge')}\n`;
+            }
+            if (formData.get('specialInstructions')) {
+                message += `\n📝 Special Instructions:\n${formData.get('specialInstructions')}\n`;
+            }
+            message += `\n✅ Please confirm this order and delivery timeline.`;
+            
+            // Encode message for WhatsApp URL
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/+233591410341?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Close modal
+            closeOrderForm();
+        });
+
+        // Update summary when quantity changes
+        document.getElementById('quantity').addEventListener('change', updateOrderSummary);
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('orderModal');
+            if (e.target === modal) {
+                closeOrderForm();
+            }
+        });
+
         // Countdown Timer
         function updateCountdown() {
             const hours = document.getElementById('hours');
