@@ -339,6 +339,22 @@
             margin: 10px 0;
         }
 
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        .discount-badge {
+            background: #28a745;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
         .delivery-note {
             background: #28a745;
             color: white;
@@ -347,6 +363,7 @@
             font-weight: 600;
             display: inline-block;
             font-size: 0.9rem;
+            margin-top: 10px;
         }
 
         .urgency-section {
@@ -612,6 +629,50 @@
             border-color: #667eea;
         }
 
+        .combo-section {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .combo-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #667eea;
+            text-align: center;
+        }
+
+        .combo-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .combo-option:hover {
+            border-color: #667eea;
+        }
+
+        .combo-option input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .combo-option label {
+            flex: 1;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .combo-price {
+            font-weight: 600;
+            color: #ff6b6b;
+        }
+
         .order-summary {
             background: #f8f9ff;
             padding: 20px;
@@ -632,6 +693,11 @@
             font-weight: 700;
             font-size: 1.2rem;
             color: #667eea;
+        }
+
+        .discount-row {
+            color: #28a745;
+            font-weight: 600;
         }
 
         .submit-order-btn {
@@ -722,7 +788,7 @@
                         </div>
                     </div>
 
-                    <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" class="cta-primary" style="border: none; cursor: pointer;">
+                    <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 253)" class="cta-primary" style="border: none; cursor: pointer;">
                         <i class="fas fa-rocket"></i>
                         BOOST MY CHILD'S HEALTH NOW!
                     </button>
@@ -800,12 +866,16 @@
                     </ul>
 
                     <div class="price-section">
-                        <div class="current-price">₵220</div>
+                        <div>
+                            <span class="original-price">₵298</span>
+                            <span class="current-price">₵253</span>
+                            <span class="discount-badge">15% OFF</span>
+                        </div>
                         <div class="delivery-note">Dispatch included within Accra</div>
                     </div>
 
-                    <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" class="whatsapp-cta" style="border: none; cursor: pointer;">
-                        <i class="fab fa-whatsapp"></i> ORDER NOW - ₵220
+                    <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 253)" class="whatsapp-cta" style="border: none; cursor: pointer;">
+                        <i class="fab fa-whatsapp"></i> ORDER NOW - ₵253
                     </button>
                 </div>
 
@@ -825,7 +895,11 @@
                     </ul>
 
                     <div class="price-section">
-                        <div class="current-price">₵250</div>
+                        <div>
+                            <span class="original-price">₵294</span>
+                            <span class="current-price">₵250</span>
+                            <span class="discount-badge">15% OFF</span>
+                        </div>
                         <div class="delivery-note">Dispatch included within Accra</div>
                     </div>
 
@@ -850,7 +924,11 @@
                     </ul>
 
                     <div class="price-section">
-                        <div class="current-price">₵160</div>
+                        <div>
+                            <span class="original-price">₵188</span>
+                            <span class="current-price">₵160</span>
+                            <span class="discount-badge">15% OFF</span>
+                        </div>
                         <div class="delivery-note">Dispatch cost included</div>
                     </div>
 
@@ -858,8 +936,6 @@
                         <i class="fab fa-whatsapp"></i> ORDER NOW - ₵160
                     </button>
                 </div>
-
-
             </div>
         </div>
     </section>
@@ -1004,7 +1080,7 @@
             </div>
 
             <div>
-                <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" 
+                <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 253)" 
                    style="display: inline-flex; align-items: center; gap: 15px; background: white; color: #ff6b6b; padding: 20px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; border: none; cursor: pointer;"
                    onmouseover="this.style.transform='translateY(-5px)'"
                    onmouseout="this.style.transform='translateY(0)'">
@@ -1026,14 +1102,14 @@
                     <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: #ffd700;">🎯 CHOOSE YOUR CHILD'S TRANSFORMATION:</h3>
                     
                     <div class="cta-buttons">
-                        <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" class="whatsapp-cta" style="background: #ffd700; color: #2c3e50; border: none; cursor: pointer;">
+                        <button onclick="openOrderForm('Complete Bundle', 663)" class="whatsapp-cta" style="background: #ffd700; color: #2c3e50; border: none; cursor: pointer;">
                             <i class="fas fa-gift"></i>
                             GET COMPLETE BUNDLE NOW!
                         </button>
                         
-                        <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" class="whatsapp-cta" style="border: none; cursor: pointer;">
+                        <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 253)" class="whatsapp-cta" style="border: none; cursor: pointer;">
                             <i class="fab fa-whatsapp"></i>
-                            START WITH SYRUP - ₵220
+                            START WITH SYRUP - ₵253
                         </button>
                         
                         <a href="tel:+233591410341" class="phone-cta">
@@ -1195,10 +1271,28 @@
                     </select>
                 </div>
                 
-               <div class="form-group">
-                    <label for="quantity">Quantity</label>
-                    <input type="number" id="quantity" name="quantity" min="1" max="1000" value="1" required>
+                <div class="combo-section">
+                    <div class="combo-title">🎁 SPECIAL COMBO DISCOUNTS</div>
+                    
+                    <div class="combo-option" onclick="toggleComboOption(this)">
+                        <input type="checkbox" id="combo-syrup" name="combo" value="syrup" data-price="253" data-name="Reload 4 Kidz Premium Syrup">
+                        <label for="combo-syrup">Reload 4 Kidz Premium Syrup</label>
+                        <span class="combo-price">₵253</span>
+                    </div>
+                    
+                    <div class="combo-option" onclick="toggleComboOption(this)">
+                        <input type="checkbox" id="combo-tablets" name="combo" value="tablets" data-price="250" data-name="Reload 4 Kidz Chewable Tablets">
+                        <label for="combo-tablets">Reload 4 Kidz Chewable Tablets</label>
+                        <span class="combo-price">₵250</span>
+                    </div>
+                    
+                    <div class="combo-option" onclick="toggleComboOption(this)">
+                        <input type="checkbox" id="combo-tonic" name="combo" value="tonic" data-price="160" data-name="Reload Tonic">
+                        <label for="combo-tonic">Reload Tonic</label>
+                        <span class="combo-price">₵160</span>
+                    </div>
                 </div>
+                
                 <div class="form-group">
                     <label for="specialInstructions">Special Instructions</label>
                     <textarea id="specialInstructions" name="specialInstructions" rows="2" placeholder="Any special delivery instructions or health concerns?"></textarea>
@@ -1206,12 +1300,16 @@
                 
                 <div class="order-summary">
                     <div class="summary-row">
-                        <span>Product:</span>
-                        <span id="summaryProduct"></span>
+                        <span>Products:</span>
+                        <span id="summaryProducts"></span>
                     </div>
                     <div class="summary-row">
-                        <span>Quantity:</span>
-                        <span id="summaryQuantity">1</span>
+                        <span>Subtotal:</span>
+                        <span id="summarySubtotal"></span>
+                    </div>
+                    <div class="summary-row discount-row" id="comboDiscountRow" style="display: none;">
+                        <span>Combo Discount:</span>
+                        <span id="summaryDiscount"></span>
                     </div>
                     <div class="summary-row total">
                         <span>Total:</span>
@@ -1229,27 +1327,61 @@
 
     <!-- Sticky CTA -->
     <div class="sticky-cta">
-        <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 220)" class="whatsapp-cta" style="animation: pulse 2s infinite; border: none; cursor: pointer;">
+        <button onclick="openOrderForm('Reload 4 Kidz Premium Syrup', 253)" class="whatsapp-cta" style="animation: pulse 2s infinite; border: none; cursor: pointer;">
             <i class="fab fa-whatsapp"></i>
             ORDER NOW - STOCK LIMITED!
         </button>
     </div>
 
     <script>
+        // Product prices
+        const productPrices = {
+            'Reload 4 Kidz Premium Syrup': 253,
+            'Reload 4 Kidz Chewable Tablets': 250,
+            'Reload Tonic': 160
+        };
+
         // Global variables for order form
         let currentProduct = '';
         let currentPrice = 0;
+        let selectedProducts = {};
 
         // Order Form Functions
         function openOrderForm(productName, price) {
             currentProduct = productName;
             currentPrice = price;
             
+            // Reset combo selections
+            document.querySelectorAll('.combo-option input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            selectedProducts = {};
+            
+            // If it's a single product, select it
+            if (productName !== 'Complete Bundle') {
+                const checkbox = document.querySelector(`.combo-option input[data-name="${productName}"]`);
+                if (checkbox) {
+                    checkbox.checked = true;
+                    selectedProducts[productName] = productPrices[productName];
+                    checkbox.parentElement.style.borderColor = '#667eea';
+                    checkbox.parentElement.style.backgroundColor = '#f0f4ff';
+                }
+            } else {
+                // Select all products for complete bundle
+                document.querySelectorAll('.combo-option input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = true;
+                    const productName = checkbox.getAttribute('data-name');
+                    selectedProducts[productName] = productPrices[productName];
+                    checkbox.parentElement.style.borderColor = '#667eea';
+                    checkbox.parentElement.style.backgroundColor = '#f0f4ff';
+                });
+            }
+            
             document.getElementById('selectedProduct').innerHTML = `
                 <strong>${productName}</strong> - ₵${price}
             `;
-            document.getElementById('summaryProduct').textContent = productName;
-            document.getElementById('summaryTotal').textContent = `₵${price}`;
+            
+            updateOrderSummary();
             
             document.getElementById('orderModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
@@ -1259,13 +1391,67 @@
             document.getElementById('orderModal').style.display = 'none';
             document.body.style.overflow = 'auto';
             document.getElementById('orderForm').reset();
+            
+            // Reset combo styles
+            document.querySelectorAll('.combo-option').forEach(option => {
+                option.style.borderColor = '#eee';
+                option.style.backgroundColor = '';
+            });
+        }
+
+        function toggleComboOption(element) {
+            const checkbox = element.querySelector('input[type="checkbox"]');
+            const productName = checkbox.getAttribute('data-name');
+            const productPrice = parseFloat(checkbox.getAttribute('data-price'));
+            
+            if (checkbox.checked) {
+                checkbox.checked = false;
+                delete selectedProducts[productName];
+                element.style.borderColor = '#eee';
+                element.style.backgroundColor = '';
+            } else {
+                checkbox.checked = true;
+                selectedProducts[productName] = productPrice;
+                element.style.borderColor = '#667eea';
+                element.style.backgroundColor = '#f0f4ff';
+            }
+            
+            updateOrderSummary();
         }
 
         function updateOrderSummary() {
-            const quantity = parseInt(document.getElementById('quantity').value);
-            const total = currentPrice * quantity;
+            let subtotal = 0;
+            let productNames = [];
             
-            document.getElementById('summaryQuantity').textContent = quantity;
+            // Calculate subtotal and get product names
+            for (const [name, price] of Object.entries(selectedProducts)) {
+                subtotal += price;
+                productNames.push(name);
+            }
+            
+            // Calculate discount based on number of products
+            let discount = 0;
+            const productCount = Object.keys(selectedProducts).length;
+            
+            if (productCount === 2) {
+                discount = 20;
+            } else if (productCount === 3) {
+                discount = 30;
+            }
+            
+            const total = subtotal - discount;
+            
+            // Update summary display
+            document.getElementById('summaryProducts').textContent = productNames.join(', ') || 'No products selected';
+            document.getElementById('summarySubtotal').textContent = `₵${subtotal}`;
+            
+            if (discount > 0) {
+                document.getElementById('comboDiscountRow').style.display = 'flex';
+                document.getElementById('summaryDiscount').textContent = `-₵${discount}`;
+            } else {
+                document.getElementById('comboDiscountRow').style.display = 'none';
+            }
+            
             document.getElementById('summaryTotal').textContent = `₵${total}`;
         }
 
@@ -1274,8 +1460,27 @@
             e.preventDefault();
             
             const formData = new FormData(this);
-            const quantity = parseInt(formData.get('quantity'));
-            const total = currentPrice * quantity;
+            
+            // Calculate order details
+            let subtotal = 0;
+            const productNames = [];
+            
+            for (const [name, price] of Object.entries(selectedProducts)) {
+                subtotal += price;
+                productNames.push(name);
+            }
+            
+            // Calculate discount
+            const productCount = Object.keys(selectedProducts).length;
+            let discount = 0;
+            
+            if (productCount === 2) {
+                discount = 20;
+            } else if (productCount === 3) {
+                discount = 30;
+            }
+            
+            const total = subtotal - discount;
             
             // Create WhatsApp message
             let message = `🛒 NEW ORDER REQUEST\n\n`;
@@ -1286,9 +1491,11 @@
                 message += `Email: ${formData.get('customerEmail')}\n`;
             }
             message += `\n📦 Order Details:\n`;
-            message += `Product: ${currentProduct}\n`;
-            message += `Quantity: ${quantity} bottle(s)\n`;
-            message += `Unit Price: ₵${currentPrice}\n`;
+            message += `Products: ${productNames.join(', ')}\n`;
+            message += `Subtotal: ₵${subtotal}\n`;
+            if (discount > 0) {
+                message += `Discount: -₵${discount}\n`;
+            }
             message += `Total Amount: ₵${total}\n`;
             message += `\n🚚 Delivery Details:\n`;
             message += `Address: ${formData.get('deliveryAddress')}\n`;
@@ -1310,9 +1517,6 @@
             // Close modal
             closeOrderForm();
         });
-
-        // Update summary when quantity changes
-        document.getElementById('quantity').addEventListener('change', updateOrderSummary);
 
         // Close modal when clicking outside
         window.addEventListener('click', function(e) {
